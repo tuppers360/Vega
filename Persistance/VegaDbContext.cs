@@ -5,14 +5,9 @@ namespace Vega.Persistence
 {
     public class VegaDbContext : DbContext
     {
-        /// <summary>
-        /// VegaDbContext Constructor
-        /// </summary>
-        /// <param name="options"></param>
         public VegaDbContext(DbContextOptions<VegaDbContext> options) : base(options) { }
 
         public DbSet<Make> Makes { get; set; }
-        public DbSet<Model> Models { get; set; }
         public DbSet<Feature> Features { get; set; }
     }
 }

@@ -1,6 +1,6 @@
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Vega.Models
 {
@@ -9,20 +9,18 @@ namespace Vega.Models
     /// </summary>
     public class Make
     {
-        /// <summary>
-        /// Unique id of the Make.
-        /// </summary>
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
-        /// <summary>
-        /// Name of the make of the vehicle.
-        /// </summary>
         [Required]
-        [Column(TypeName = "varchar(20)")]
+        [StringLength(255)]
         public string Name { get; set; }
 
-        public virtual List<Model> Models { get; set; }
+        public virtual ICollection<Model> Models { get; set; }
+
+        public Make()
+        {
+            Models = new Collection<Model>();
+        }
     }
 }
