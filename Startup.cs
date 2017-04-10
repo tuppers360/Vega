@@ -8,7 +8,7 @@ using Microsoft.Extensions.Logging;
 using Vega.Persistence;
 using AutoMapper;
 
-namespace WebApplicationBasic
+namespace Vega
 {
     public class Startup
     {
