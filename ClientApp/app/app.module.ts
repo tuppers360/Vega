@@ -1,3 +1,4 @@
+import { FeatureService } from './services/feature.service';
 import{FormsModule} from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
@@ -34,6 +35,7 @@ import { MakeService } from './services/make.service';
         ])
     ],
     providers: [
+        FeatureService,
         MakeService
     ]
 })
