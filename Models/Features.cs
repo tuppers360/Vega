@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace Vega.Models
+namespace vega.Models
 {
     /// <summary>
     /// Model class for the features of the vehicles.
