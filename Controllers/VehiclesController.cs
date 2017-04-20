@@ -64,6 +64,7 @@ namespace vega.Controllers
 
             return Ok(vehicleResource);
         }
+
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateVehicle(int id, [FromBody] VehicleResource vehicleResource)
         {
