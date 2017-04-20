@@ -52,6 +52,18 @@ namespace vega.Controllers
             return Ok(id);
         }
 
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetVehicle(int id)
+        {
+            var vehicle = await context.Vehicles.Include(v => v.Features).SingleOrDefaultAsync(v => v.Id == id);
+
+            if (vehicle == null)
+                return NotFound();
+
+            var vehicleResource = mapper.Map<Vehicle, VehicleResource>(vehicle);
+
+            return Ok(vehicleResource);
+        }
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateVehicle(int id, [FromBody] VehicleResource vehicleResource)
         {
@@ -59,8 +71,8 @@ namespace vega.Controllers
                 return BadRequest(ModelState);
 
             var vehicle = await context.Vehicles.Include(v => v.Features).SingleOrDefaultAsync(v => v.Id == id);
-            
-             if (vehicle == null)
+
+            if (vehicle == null)
                 return NotFound();
 
             mapper.Map<VehicleResource, Vehicle>(vehicleResource, vehicle);
