@@ -1,7 +1,7 @@
 using System.IO;
 using Microsoft.AspNetCore.Hosting;
 
-namespace Vega
+namespace vega
 {
     public class Program
     {
