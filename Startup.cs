@@ -28,6 +28,7 @@ namespace vega
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<IVehicleRepository, VehicleRepository>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
             // Add AutoMapper
             services.AddAutoMapper();
             // Add DbContext
