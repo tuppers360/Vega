@@ -16,7 +16,7 @@ namespace vega.Controllers
         private readonly IMapper mapper;
         private readonly IVehicleRepository repository;
         private readonly IUnitOfWork unitOfWork;
-        
+
         public VehiclesController(IMapper mapper, IVehicleRepository repository, IUnitOfWork unitOfWork)
         {
             this.unitOfWork = unitOfWork;
@@ -85,6 +85,8 @@ namespace vega.Controllers
             vehicle.LastUpdate = DateTime.Now;
 
             await unitOfWork.CompleteAsync();
+
+            vehicle = await repository.GetVehicle(vehicle.Id);
 
             var result = mapper.Map<Vehicle, VehicleResource>(vehicle);
 
