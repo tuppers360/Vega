@@ -5,10 +5,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using vega.Persistence;
+using Vega.Persistence;
+using Vega.Core;
 using AutoMapper;
 
-namespace vega
+namespace Vega
 {
     public class Startup
     {

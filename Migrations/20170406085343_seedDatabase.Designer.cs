@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
-using vega.Persistence;
+using Vega.Persistence;
 
-namespace vega.Migrations
+namespace Vega.Migrations
 {
     [DbContext(typeof(VegaDbContext))]
     [Migration("20170406085343_seedDatabase")]

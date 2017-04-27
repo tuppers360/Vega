@@ -4,11 +4,12 @@ using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using vega.Controllers.Resources;
-using vega.Models;
-using vega.Persistence;
+using Vega.Controllers.Resources;
+using Vega.Models;
+using Vega.Core;
+using Vega.Models.Core;
 
-namespace vega.Controllers
+namespace Vega.Controllers
 {
     [Route("/api/vehicles")]
     public class VehiclesController : Controller

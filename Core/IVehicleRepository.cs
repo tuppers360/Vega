@@ -1,7 +1,8 @@
 using System.Threading.Tasks;
-using vega.Models;
+using Vega.Models;
+using Vega.Models.Core;
 
-namespace vega.Persistence
+namespace Vega.Core
 {
     public interface IVehicleRepository
     {
