@@ -48,6 +48,6 @@
       #contactPhone="ngModel">
     <div class="alert alert-danger" *ngIf="contactPhone.touched && !contactPhone.valid">Please enter a valid phone number</div>
   </div>
-  <button class="btn btn-primary">Save</button>
+  <button class="btn btn-primary" [disabled]="!f.valid">Save</button>
   <button *ngIf="vehicle.id" class="btn btn-danger" type="button" (click)="delete()">Delete</button>
 </form>
