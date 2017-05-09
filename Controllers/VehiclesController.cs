@@ -8,6 +8,7 @@ using Vega.Controllers.Resources;
 using Vega.Models;
 using Vega.Core;
 using Vega.Models.Core;
+using System.Collections.Generic;
 
 namespace Vega.Controllers
 {
@@ -70,6 +71,15 @@ namespace Vega.Controllers
 
             return Ok(vehicleResource);
         }
+
+        [HttpGet]
+        public async Task<IEnumerable<VehicleResource>> GetVehicles()
+        {
+            var vehicles = await repository.GetVehicles();
+
+            return mapper.Map<IEnumerable<Vehicle>, IEnumerable<VehicleResource>>(vehicles);
+        }
+
 
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateVehicle(int id, [FromBody] SaveVehicleResource vehicleResource)
