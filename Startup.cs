@@ -5,8 +5,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Vega.Persistence;
-using Vega.Core;
+using vega.Persistence;
+using vega.Core;
 using AutoMapper;
 
 namespace Vega

@@ -1,12 +1,11 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using Vega.Controllers.Resources;
-using Vega.Core;
-using Vega.Models;
-using Vega.Models.Core;
+using vega.Controllers.Resources;
+using vega.Core;
+using vega.Core.Models;
 
-namespace Vega.Persistence
+namespace vega.Persistence
 {
     public class VehicleRepository : IVehicleRepository
     {

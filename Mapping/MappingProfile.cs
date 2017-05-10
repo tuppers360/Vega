@@ -1,16 +1,16 @@
 using AutoMapper;
-using Vega.Controllers.Resources;
-using Vega.Models;
+using vega.Controllers.Resources;
 using System.Linq;
-using Vega.Models.Core;
+using vega.Core.Models;
 
-namespace Vega.Mapping
+namespace vega.Mapping
 {
     public class MappingProfile : Profile
     {
         public MappingProfile()
         {
             // Domain to API Resources
+            CreateMap<FilterResource, Filter>();
             CreateMap<Make, MakeResource>();
             CreateMap<Make, KeyValuePairResource>();
             CreateMap<Model, KeyValuePairResource>();
