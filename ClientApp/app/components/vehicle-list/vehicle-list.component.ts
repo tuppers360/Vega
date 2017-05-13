@@ -11,9 +11,15 @@ import { Component, OnInit } from '@angular/core';
 
 export class VehicleListComponent implements OnInit {
   vehicles: Vehicle[];
-  allVehicles: Vehicle[];
   makes: KeyValuePair[];
-  filter: any = {};
+  query: any = {};
+  columns = [
+    { title: 'Id' },
+    { title: 'Contact Name', key: 'contactName', isSortable: true },
+    { title: 'Make', key: 'make', isSortable: true },
+    { title: 'Model', key: 'model', isSortable: true },
+    {}
+  ];
 
   constructor(private vehicleService: VehicleService) { }
 
@@ -21,24 +27,30 @@ export class VehicleListComponent implements OnInit {
     this.vehicleService.getMakes()
       .subscribe(makes => this.makes = makes);
 
-    this.vehicleService.getVehicles()
-      .subscribe(vehicles => this.vehicles = this.allVehicles = vehicles);
+    this.populateVehicles();
+  }
+
+  private populateVehicles() {
+    this.vehicleService.getVehicles(this.query)
+      .subscribe(vehicles => this.vehicles = vehicles);
   }
 
   onFilterChange() {
-    var vehicles = this.allVehicles;
-
-    if (this.filter.makeId)
-      vehicles = vehicles.filter(v => v.make.id == this.filter.makeId);
-
-    if (this.filter.modelId)
-      vehicles = vehicles.filter(v => v.model.id == this.filter.modelId);
-
-    this.vehicles = vehicles;
+    this.populateVehicles();
   }
 
   resetFilter() {
-    this.filter = {};
+    this.query = {};
     this.onFilterChange();
+  }
+
+  sortBy(columnName) {
+    if (this.query.sortBy === columnName) {
+      this.query.isSortAscending = !this.query.isSortAscending;
+    } else {
+      this.query.sortBy = columnName;
+      this.query.isSortAscending = true;
+    }
+    this.populateVehicles();
   }
 }
