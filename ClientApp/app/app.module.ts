@@ -15,6 +15,7 @@ import { CounterComponent } from './components/counter/counter.component';
 import { VehicleFormComponent } from './components/vehicle-form/vehicle-form.component';
 import { VehicleService } from './services/vehicle.service';
 import { VehicleListComponent } from './components/vehicle-list/vehicle-list.component';
+import { PaginationComponent } from "./components/shared/pagination.component";
 
 Raven.config('https://6e3cdac5e0cc4ac6bb2871c887764584@sentry.io/165296').install();
 
@@ -27,7 +28,8 @@ Raven.config('https://6e3cdac5e0cc4ac6bb2871c887764584@sentry.io/165296').instal
         FetchDataComponent,
         HomeComponent,
         VehicleFormComponent,
-        VehicleListComponent
+        VehicleListComponent,
+        PaginationComponent
     ],
     imports: [
         UniversalModule, // Must be first import. This automatically imports BrowserModule, HttpModule, and JsonpModule too.
