@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 
-namespace Vega.Models.Core
+namespace vega.Core.Models
 {
     /// <summary>
     /// Model class for the make of the vehicle.

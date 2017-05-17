@@ -4,12 +4,12 @@ using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Vega.Controllers.Resources;
-using Vega.Models;
-using Vega.Core;
-using Vega.Models.Core;
+using vega.Controllers.Resources;
+using System.Collections.Generic;
+using vega.Core;
+using vega.Core.Models;
 
-namespace Vega.Controllers
+namespace vega.Controllers
 {
     [Route("/api/vehicles")]
     public class VehiclesController : Controller
@@ -70,6 +70,16 @@ namespace Vega.Controllers
 
             return Ok(vehicleResource);
         }
+
+        [HttpGet]
+        public async Task<QueryResultResource<VehicleResource>> GetVehicles(VehicleQueryResource filterResource)
+        {
+            var filter = mapper.Map<VehicleQueryResource, VehicleQuery>(filterResource);
+            var queryResult = await repository.GetVehicles(filter);
+
+            return mapper.Map<QueryResult<Vehicle>, QueryResultResource<VehicleResource>>(queryResult);
+        }
+
 
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateVehicle(int id, [FromBody] SaveVehicleResource vehicleResource)
