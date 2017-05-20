@@ -16,6 +16,7 @@ import { VehicleFormComponent } from './components/vehicle-form/vehicle-form.com
 import { VehicleService } from './services/vehicle.service';
 import { VehicleListComponent } from './components/vehicle-list/vehicle-list.component';
 import { PaginationComponent } from "./components/shared/pagination.component";
+import { ViewVehicleComponent } from './components/view-vehicle/view-vehicle.component';
 
 Raven.config('https://6e3cdac5e0cc4ac6bb2871c887764584@sentry.io/165296').install();
 
@@ -29,7 +30,8 @@ Raven.config('https://6e3cdac5e0cc4ac6bb2871c887764584@sentry.io/165296').instal
         HomeComponent,
         VehicleFormComponent,
         VehicleListComponent,
-        PaginationComponent
+        PaginationComponent,
+        ViewVehicleComponent
     ],
     imports: [
         UniversalModule, // Must be first import. This automatically imports BrowserModule, HttpModule, and JsonpModule too.
@@ -38,7 +40,8 @@ Raven.config('https://6e3cdac5e0cc4ac6bb2871c887764584@sentry.io/165296').instal
         RouterModule.forRoot([
             { path: '', redirectTo: 'vehicles', pathMatch: 'full' },
             { path: 'vehicles/new', component: VehicleFormComponent },
-            { path: 'vehicles/:id', component: VehicleFormComponent },
+            { path: 'vehicles/edit/:id', component: VehicleFormComponent }, 
+            { path: 'vehicles/:id', component: ViewVehicleComponent },
             { path: 'vehicles', component: VehicleListComponent },
             { path: 'home', component: HomeComponent },
             { path: 'counter', component: CounterComponent },
