@@ -16,6 +16,7 @@ import { VehicleFormComponent } from './components/vehicle-form/vehicle-form.com
 import { VehicleService } from './services/vehicle.service';
 import { VehicleListComponent } from './components/vehicle-list/vehicle-list.component';
 import { PaginationComponent } from "./components/shared/pagination.component";
+import { PhotoService } from "./services/photo.service";
 import { ViewVehicleComponent } from './components/view-vehicle/view-vehicle.component';
 
 Raven.config('https://6e3cdac5e0cc4ac6bb2871c887764584@sentry.io/165296').install();
@@ -53,7 +54,8 @@ Raven.config('https://6e3cdac5e0cc4ac6bb2871c887764584@sentry.io/165296').instal
         {
             provide: ErrorHandler, useClass: AppErrorHandler
         },
-        VehicleService
+        VehicleService,
+        PhotoService
     ]
 })
 export class AppModule {
