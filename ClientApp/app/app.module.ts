@@ -1,3 +1,5 @@
+import { BrowserXhrWithProgress, ProgressService } from './services/progress.service';
+import { BrowserXhr } from '@angular/http';
 import * as Raven from 'raven-js';
 import { AppErrorHandler } from './app.error-handler';
 import { ErrorHandler } from '@angular/core';
@@ -41,7 +43,7 @@ Raven.config('https://6e3cdac5e0cc4ac6bb2871c887764584@sentry.io/165296').instal
         RouterModule.forRoot([
             { path: '', redirectTo: 'vehicles', pathMatch: 'full' },
             { path: 'vehicles/new', component: VehicleFormComponent },
-            { path: 'vehicles/edit/:id', component: VehicleFormComponent }, 
+            { path: 'vehicles/edit/:id', component: VehicleFormComponent },
             { path: 'vehicles/:id', component: ViewVehicleComponent },
             { path: 'vehicles', component: VehicleListComponent },
             { path: 'home', component: HomeComponent },
@@ -51,11 +53,11 @@ Raven.config('https://6e3cdac5e0cc4ac6bb2871c887764584@sentry.io/165296').instal
         ])
     ],
     providers: [
-        {
-            provide: ErrorHandler, useClass: AppErrorHandler
-        },
+        { provide: ErrorHandler, useClass: AppErrorHandler },
+        { provide: BrowserXhr, useClass: BrowserXhrWithProgress },
         VehicleService,
-        PhotoService
+        PhotoService,
+        ProgressService
     ]
 })
 export class AppModule {
